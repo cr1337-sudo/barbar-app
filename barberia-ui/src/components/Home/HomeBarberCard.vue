@@ -19,8 +19,8 @@
 
 .barber-card {
     background-color: @colorWhite;
-    height: 12rem;
-    height: 100px;
+    padding: 6rem 0rem;
+    height: 11rem;
     border-radius: 1.3rem;
     width: 100%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

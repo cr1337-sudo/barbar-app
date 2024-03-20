@@ -2,13 +2,13 @@
 import Home from '@/pages/Home.vue';
 import Navbar from '@/components/Navbar.vue';
 import BarberShopInfo from './pages/BarberShopInfo.vue';
+import Favorites from './pages/Favorites.vue';
 </script>
 
 <template>
     <div class="container">
         <div class="item">
-            <!-- <Home /> -->
-            <BarberShopInfo />
+            <Favorites/>
         </div>
         <div class="nav">
             <Navbar />
@@ -20,8 +20,10 @@ import BarberShopInfo from './pages/BarberShopInfo.vue';
 .container {
     position: relative;
     height: 100%;
-
+    
     .item {
+        padding: 0 3rem;
+        overflow: scroll;
         height: 92%;
     }
 

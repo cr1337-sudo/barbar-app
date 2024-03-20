@@ -1,13 +1,13 @@
 <template>
-    <div class="svg" :style="{fill}">
-        <Svg/>
+    <div class="svg" :style="{ fill }">
+        <Svg />
     </div>
 </template>
 
 <style lang="less" scoped>
 @import "@/colors.less";
 
-.svg{
+.svg {
     fill: @colorWhite;
 }
 </style>
@@ -17,6 +17,7 @@ import { defineAsyncComponent } from 'vue'
 let imagePath;
 const basePath = '/src/assets/'
 let selectedSvg;
+
 const props = defineProps({
     name: String,
     fill: String
@@ -41,9 +42,17 @@ switch (props.name) {
     case 'down-arrow':
         selectedSvg = 'expand'
         break;
+    case 'nav-prev':
+        selectedSvg = 'nav_prev'
+        break;
     default:
         break;
 }
 
 const Svg = defineAsyncComponent(() => import(`${basePath}${selectedSvg}.svg`))
 </script>
+
+<style scoped>
+    svg {
+    }
+</style>

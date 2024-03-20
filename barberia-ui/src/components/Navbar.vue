@@ -34,7 +34,7 @@
     .selected {
         border: 0.2rem solid @principalDark;
         margin-top: -50%;
-        padding: 2.5rem;
+        padding: 1.2rem;
         border-radius: 100%;
         bottom: 10rem;
         background-color: @colorWhite;
