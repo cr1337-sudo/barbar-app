@@ -1,14 +1,14 @@
 <template>
-    <div class="barber-card" :style="{background: bgColor, boxShadow: noBoxShadow && 'none' }">
+    <div class="barber-card" :style="{ background: bgColor, boxShadow: noBoxShadow && 'none' }">
         <section class="barber-card__photo-container">
-            <BarberImage/>
+            <BarberImage />
         </section>
-        <section class="barber-card__barber-info" :style="{justifyContent: justifyContent}">
+        <section class="barber-card__barber-info" :style="{ justifyContent: justifyContent }">
             <span class="barber-name">
                 {{ PROPbarberName }}
             </span>
-            <span class="barber-shop-direction">Fake Av. 123</span>
-            <button v-if="!noViewProfile" class="view-profile-button">
+            <span v-if="!noAddress" class="barber-shop-direction">Fake Av. 123</span>
+            <button v-if="!noViewProfile" class="view-profile-button" @click="buttonEvent">
                 Ver Perfil
             </button>
         </section>
@@ -19,8 +19,7 @@
 
 .barber-card {
     background-color: @colorWhite;
-    padding: 6rem 0rem;
-    height: 11rem;
+    padding: 1rem 0rem;
     border-radius: 1.3rem;
     width: 100%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -72,10 +71,14 @@
 import BarberImage from '../BarberImage.vue';
 
 defineProps({
+    buttonEvent: Function,
     bgColor: {
         type: String,
     },
     noBoxShadow: {
+        type: Boolean
+    },
+    noAddress: {
         type: Boolean
     },
     noViewProfile: {

@@ -1,5 +1,5 @@
 <template>
-    <Navigation type="text" text="Favorites" noPrevious/>
+    <Navigation :type="'input'" :placeholder="'Search for a barber!'" noPrevious/>
     <div class="main">
         <HomeBarberCard />
         <HomeBarberCard />

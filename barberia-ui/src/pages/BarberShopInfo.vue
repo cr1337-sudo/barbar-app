@@ -1,20 +1,31 @@
 <script setup>
 import HomeBarberCard from '../components/Home/HomeBarberCard.vue';
+import Navigation from '../components/Navigation.vue';
 import ServiceItem from '../components/ServiceItem.vue';
 import SvgLoader from '../components/SvgLoader.vue';
 import Schedule from '@/components/BarberShopInfo/Schedule.vue'
+import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 
+
+const router = useRouter()
 const isScheduling = ref(false)
 
 const setIsScheduling = () => {
     isScheduling.value = !isScheduling.value
 }
+
+const goBack = () => {
+    router.back()
+}
 </script>
 
 <template>
-    <div v-if="isScheduling" class="overlay" @click="setIsScheduling"/>
+    <div v-if="isScheduling" class="overlay" @click="setIsScheduling" />
     <div class="barber-shop">
+        <div class="navigation">
+            <Navigation :backAction="goBack" type="''" />
+        </div>
         <div class="barber-shop__body">
             <section class="barber-shop__body--favorite-button">
                 <SvgLoader name="favorite" />
@@ -25,20 +36,20 @@ const setIsScheduling = () => {
             <section class="barber-shop__body--services">
                 <h4 class="barber-shop__body--services--title">Lista de servicios</h4>
                 <ul class="barber-shop__body--services--list">
-                    <ServiceItem :action="setIsScheduling"/>
-                    <ServiceItem :action="setIsScheduling"/>
-                    <ServiceItem :action="setIsScheduling"/>
+                    <ServiceItem :action="setIsScheduling" />
+                    <ServiceItem :action="setIsScheduling" />
+                    <ServiceItem :action="setIsScheduling" />
                 </ul>
             </section>
         </div>
 
     </div>
-        <transition name="scheduling-transition">
+    <transition name="scheduling-transition">
 
-            <div v-if="isScheduling" class="scheduling">
-                <Schedule :collapse="setIsScheduling"/>
-            </div>
-        </transition>
+        <div v-if="isScheduling" class="scheduling">
+            <Schedule :collapse="setIsScheduling" />
+        </div>
+    </transition>
 </template>
 
 
@@ -84,7 +95,7 @@ const setIsScheduling = () => {
         }
 
         &--header {
-            margin-top: -3rem;
+            margin-top: -2.5rem;
         }
 
         &--services {
@@ -114,5 +125,4 @@ const setIsScheduling = () => {
     height: 65%;
     bottom: 0;
 }
-
 </style>

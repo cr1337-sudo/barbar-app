@@ -1,17 +1,17 @@
 <template>
     <div class="navigation-main">
 
-        <section class="back">
+        <section class="back" v-if="!noPrevious" @click="backAction">
             <SvgLoader name="nav-prev" />
         </section>
 
         <section class="section">
-            
+
             <p class="title" v-if="type === 'text'">
-               {{ text }} 
+                {{ text }}
             </p>
             <input v-if="type === 'input'" type="text" :placeholder="placeholder">
-           
+
         </section>
     </div>
 </template>
@@ -19,12 +19,14 @@
 <script setup>
 import SvgLoader from './SvgLoader.vue';
 defineProps({
+    backAction: Function,
     type: {
         type: String,
         required: true
     },
     placeholder: String,
-    text: String
+    text: String,
+    noPrevious: Boolean
 })
 
 </script>
@@ -34,16 +36,22 @@ defineProps({
 
 .navigation-main {
     display: flex;
-    padding: 1.2rem 0;
+    width: 100%;
+    height: 6rem;
+    padding: 1.2rem 1rem;
     align-items: center;
     position: sticky;
     top: 0;
     background: @principalSoft;
 
+    .back {
+        margin-right: 1rem;
+    }
+
     .section {
         display: flex;
         justify-content: left;
-        width: 100%;
+        flex: 1;
 
         .title {
             font-size: 2.2rem;

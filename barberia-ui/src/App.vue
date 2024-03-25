@@ -3,12 +3,14 @@ import Home from '@/pages/Home.vue';
 import Navbar from '@/components/Navbar.vue';
 import BarberShopInfo from './pages/BarberShopInfo.vue';
 import Favorites from './pages/Favorites.vue';
+import SearchBarber from './pages/SearchBarber.vue';
 </script>
 
 <template>
     <div class="container">
         <div class="item">
-            <Favorites/>
+                <router-view/>
+
         </div>
         <div class="nav">
             <Navbar />
@@ -22,8 +24,7 @@ import Favorites from './pages/Favorites.vue';
     height: 100%;
     
     .item {
-        padding: 0 3rem;
-        overflow: scroll;
+        overflow-y: scroll;
         height: 92%;
     }
 

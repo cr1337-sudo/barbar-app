@@ -1,19 +1,20 @@
 <template>
     <div class="navbar">
+        <router-link :to="{ name: 'home' }">
+            <SvgLoader name="home" />
+        </router-link>
+
+        <router-link :to="{ name: 'search' }">
+            <SvgLoader name="search" />
+        </router-link>
+        <router-link :to="{ name: 'bookings' }">
+            <SvgLoader name="today" class="selected" />
+        </router-link>
+        <router-link :to="{ name: 'favorites' }">
+            <SvgLoader name="favorite" />
+        </router-link>
         <li>
-            <SvgLoader name="home"/>
-        </li>
-        <li>
-            <SvgLoader name="search"/>
-        </li>
-        <li >
-            <SvgLoader name="today" class="selected"/>
-        </li>
-        <li>
-            <SvgLoader name="favorite"/>
-        </li>
-        <li>
-            <SvgLoader name="account"/>
+            <SvgLoader name="account" />
         </li>
     </div>
 </template>
